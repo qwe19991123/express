@@ -1,0 +1,245 @@
+### 注册
+POST http://localhost:3000/customer/addCustomer
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+  "userAccount": "123456",
+  "userName":"123",
+  "password":"123456",
+  "userSex":"1",
+  "phone":"123456",
+  "idCard":"123456",
+  "password":"123456",
+  "frontScore":"0",
+  "isAdmin":"1"
+}
+
+### 登录
+POST http://localhost:3000/customer/login
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+  "userAccount": "456789",
+  "password":"456789",
+  "isAdmin":"0"
+}
+
+### 用户详情
+GET  http://localhost:3000/customer/findCustomerById?id=1&isAdmin=0
+
+### 修改用户信息
+POST http://localhost:3000/customer/updateCustomerById
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "id" : "1",
+    "userAccount" :"456789",
+    "userName" : "456",
+    "userSex" : "0",
+    "phone" : "456789",
+    "idCard" : "456789",
+    "password" : "456789",
+    "frontScore" : "100"
+}
+
+### 用户列表
+POST http://localhost:3000/customer/listCustomers
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "userAccount" :"456789",
+    "userName" : "456",
+    "isAdmin"  : "1"
+}
+
+### 删除用户
+GET  http://localhost:3000/customer/deleteCustomer?id=6&isAdmin=0
+
+### 修改密码
+POST   http://localhost:3000/customer/updatePwd
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "originPwd" :"123456",
+    "newPwd" : "456789",
+    "isAdmin"  : "0",
+    "id":"1"
+}
+
+### 充值积分
+GET  http://localhost:3000/customer/updateCustomerScore?id=1&score=50
+
+### 退出登录
+GET  http://localhost:3000/customer/loginOut?id=1,isAdmin=0
+
+
+### 分类列表
+GET  http://localhost:3000/cateGory/findCateGoryTree
+
+
+### 添加分类
+POST   http://localhost:3000/cateGory/addCateGory
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "cateName" :"青春恋爱物语",
+    "remark" : "最好的时光，最甜的恋爱",
+    "createTime":"2020-01-01 01:01:00",
+    "id":"1",
+    "createBy":"妖怪菲菲",
+    "parentCateCode":"2",
+    "parentCateName":"青春文学"
+}
+
+
+### 修改分类
+POST   http://localhost:3000/cateGory/updateCateGory
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "cateName" :"青春恋爱",
+    "cateCode" : "4",
+    "parentCateCode":"2",
+    "remark":"妖怪菲菲"
+}
+
+### 分类详情
+GET  http://localhost:3000/cateGory/findCateGoryByCode?level=1&cateGoryCode=1
+
+
+### 删除分类
+GET  http://localhost:3000/cateGory/deleteMenuBycode?level=2&cateGoryCode=5
+
+### 添加商品
+POST   http://localhost:3000/goods/addGoods
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "skuName" :"青春恋爱",
+    "ISBN" : "4",
+    "costPrice":"20",
+    "salePrice":"19",
+    "firstCateCode":"1",
+    "secondCateCode":"1",
+    "skuAd":"青春恋爱多美好啊",
+    "skuIntroduction":"给自己的青春一本书",
+    "skuStatus":"0",
+    "visiteNum":"999",
+    "businessCode":"1",
+    "storeNum":"19",
+    "images":"1"
+}
+
+### 商品列表
+POST   http://localhost:3000/goods/listGoods
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+# {
+#     "skuName" :"青春恋爱",
+#     "ISBN" : "4",
+#     "costPrice":"20",
+#     "firstCateCode":"1",
+#     "secondCateCode":"1",
+#     "skuAd":"青春恋爱多美好啊",
+#     "skuIntroduction":"给自己的青春一本书",
+#     "skuStatus":"0",
+#     "visiteNum":"999",
+#     "businessCode":"1",
+#     "storeNum":"19",
+#     "images":"1"
+# }
+
+### 修改商品
+POST   http://localhost:3000/goods/updateGoodsInfo
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "skuName" :"青春恋爱11",
+    "skuCode" :"1",
+    "ISBN" : "3",
+    "costPrice":"20",
+    "firstCateCode":"1",
+    "secondCateCode":"1",
+    "skuAd":"青春恋爱多美好",
+    "skuIntroduction":"给自己的青春一本书",
+    "skuStatus":"0",
+    "visiteNum":"99",
+    "businessCode":"1",
+    "storeNum":"19",
+    "images":"1"
+}
+
+### 查询商品详情
+GET  http://localhost:3000/goods/findGoodsBySkuCode?skuCode=1
+
+### 删除商品
+GET  http://localhost:3000/goods/deleteGoods?skuCode=1
+
+### 商品上架下架
+GET  http://localhost:3000/goods/updateGoodsStatus?skuCode=2&status=1
+
+### 购物车列表
+GET  http://localhost:3000/shoppingCar/findGoodsFromCar
+
+### 添加购物车
+POST   http://localhost:3000/shoppingCar/addShoppingCar
+Accept: application/json, text/javascript,*/*
+Content-Type: application/json; charset=UTF-8
+
+{
+    "skuName" :"青春恋爱11",
+    "skuCode" :"4",
+    "ISBN" : "3",
+    "costPrice":"20",
+    "firstCateCode":"1",
+    "secondCateCode":"1",
+    "skuAd":"青春恋爱多美好",
+    "skuIntroduction":"给自己的青春一本书",
+    "skuStatus":"0",
+    "visiteNum":"99",
+    "businessCode":"2",
+    "shopNum":"19",
+    "images":"1",
+    "orderUserId":"1"
+}
+
+### 删除购物车
+GET  http://localhost:3000/shoppingCar/deleteGoodsFromCar?skuCode=1
+
+### 购物车商品加一
+GET  http://localhost:3000/shoppingCar/addOneShoppingCar?skuCode=2
+
+### 购物车商品减一
+GET  http://localhost:3000/shoppingCar/deleteOneShoppingCar?skuCode=2
+
+### 添加轮播图
+GET  http://localhost:3000/banner/addBanner?images=2&status=1
+
+### 轮播图列表
+GET  http://localhost:3000/banner/listPic
+
+### 删除轮播图
+GET  http://localhost:3000/banner/deletepic?id=1
+
+### 修改状态轮播图
+GET  http://localhost:3000/banner/changePicStatus?status=2
+
+### 订单列表
+GET  http://localhost:3000/order/listOrders
+
+### 订单详情
+GET  http://localhost:3000/order/listOrderDetails?orderCode=3
+
+### 添加订单
+GET  http://localhost:3000/order/addOrder
+

@@ -1,0 +1,9 @@
+// reset
+@import url('./reset.css');
+// 字体图标 TODO链接要改成最新的
+@import url('//at.alicdn.com/t/font_1779825_jc99bnpfuaj.css');
+// 移动端要全局显示
+html,body{
+    height: 100%;
+    overflow: hidden;
+}
